@@ -1,5 +1,4 @@
-# ui-web-app-reactjs
-UI app to access microservices through API Gateway.
+# ui-web-app-reactjs.
 Developed in React.js
 
 ## Build Instruction
