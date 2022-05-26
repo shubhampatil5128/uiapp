@@ -1,1 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  "react-ui"
+  namespace: ms
+  labels:
+    app: "react-ui"
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: "react-ui"
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app:  "react-ui"
+    spec:
+      containers:
+      - image: shubhampatil5128/ui
+        name:  "react-ui"
+        ports:
+          - containerPort: 8081
+            name: "react-ui"
 
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "react-ui"
+  namespace: ms
+spec:
+  selector:
+    app: "react-ui"
+  type: NodePort
+  ports:
+  - name: "react-ui"
+    port: 8080
+    targetPort: 8080
+---
