@@ -44,6 +44,22 @@ spec:
     targetPort: 8080
 ---
 
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+    name: react
+    namespace: ms
+spec:
+   scaleTargetRef:
+       apiVersion: apps/v1
+       kind: Deployment
+       name: "react-ui"
+   minReplicas: 2
+   maxReplicas: 5
+   targetCPUUtilizationPercentage: 70
+---------
+   
+
 
 
         
