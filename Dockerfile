@@ -7,5 +7,4 @@ RUN npm install
 
 EXPOSE 8080
 
-#Runs in development Mode
 CMD ["npm", "start"]
