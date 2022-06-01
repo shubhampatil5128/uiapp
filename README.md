@@ -5,7 +5,7 @@ Developed in React.js
 ```
 npm install
 
-npm starter
+npm starte
 
 ```
 *App runs on port **8080***
